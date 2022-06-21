@@ -1,9 +1,14 @@
-function Withdraw() {
-  const [show, setShow] = React.useState(true);
-  const [withdraw, setWithdraw] = React.useState(0);
-  const [status, setStatus] = React.useState('');
-  const ctx = React.useContext(UserContext);
-  const userBalance = ctx.users[0].balance;
+import React, { useState, useContext } from 'react';
+
+import { UserContext } from '../../context/user-context';
+import { Card } from '../../components/card';
+
+export const Withdraw = () => {
+  const [show, setShow] = useState(true);
+  const [withdraw, setWithdraw] = useState(0);
+  const [status, setStatus] = useState('');
+  const userContext = useContext(UserContext);
+  const userBalance = userContext.users[0].balance;
 
   function handleWithdraw() {
     if (withdraw > userBalance) {
@@ -14,7 +19,7 @@ function Withdraw() {
       }, 3000);
       return
     }
-    ctx.setUserBalance(s => s - Number(withdraw));
+    userContext.setUserBalance(s => s - Number(withdraw));
     setWithdraw(0);
     setShow(false);
   }

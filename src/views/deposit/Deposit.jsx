@@ -1,9 +1,14 @@
-function Deposit() {
-  const [show, setShow] = React.useState(true);
-  const [deposit, setDeposit] = React.useState(0);
-  const [status, setStatus] = React.useState('');
-  const ctx = React.useContext(UserContext);
-  const userBalance = ctx.users[0].balance;
+import React, { useState, useContext } from 'react';
+
+import { UserContext } from '../../context/user-context';
+import { Card } from '../../components/card';
+
+export const Deposit = () => {
+  const [show, setShow] = useState(true);
+  const [deposit, setDeposit] = useState(0);
+  const [status, setStatus] = useState('');
+  const userContext = useContext(UserContext);
+  const userBalance = userContext.users[0].balance;
 
   function handleDeposit() {
     if (deposit <= 0) {
@@ -14,7 +19,7 @@ function Deposit() {
       }, 3000);
       return
     }
-    ctx.setUserBalance(s => s + Number(deposit));
+    userContext.setUserBalance(s => s + Number(deposit));
     setShow(false);
   }
 

@@ -1,12 +1,17 @@
-function Navbar() {
-  const ctx = React.useContext(UserContext);
-  const userLogin = ctx.userLogin;
-  const Link = window.ReactRouterDOM.Link;
-  const params = window.ReactRouterDOM.useLocation();
+import React, { useContext } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import './styles.css';
+
+import { UserContext } from '../../context/user-context';
+
+export const Navbar = () => {
+  const userContext = useContext(UserContext);
+  const userLogin = userContext.userLogin;
+  const params = useLocation();
 
   function handleOnLogout() {
-    ctx.setUserLogin(false);
-    ctx.setUser({});
+    userContext.setUserLogin(false);
+    userContext.setUser({});
   }
 
   return (
@@ -21,7 +26,7 @@ function Navbar() {
             {
               userLogin &&
               <li className="nav-item">
-                <Link className={params.pathname === '/addaccount' ? "nav-link link-animation active" : "nav-link link-animation" } to='/addaccount'>Add Account</Link>
+                <Link className={params.pathname === '/addaccount' ? "nav-link link-animation active" : "nav-link link-animation" } to='addaccount'>Add Account</Link>
               </li>
             }
             {
@@ -54,7 +59,7 @@ function Navbar() {
               {
                 !userLogin &&
                 <li className="nav-item">
-                  <Link className={params.pathname === '/createaccount' ? "nav-link link-animation active" : "nav-link link-animation" } aria-current="page" to="/createaccount">Create Account</Link>
+                  <Link className={params.pathname === '/create-account' ? "nav-link link-animation active" : "nav-link link-animation" } aria-current="page" to="/create-account">Create Account</Link>
                 </li>
               }
               {

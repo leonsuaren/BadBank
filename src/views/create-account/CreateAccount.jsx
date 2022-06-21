@@ -1,15 +1,23 @@
-function CreateAccount() {
-  const [show, setShow] = React.useState(true);
-  const [error, setError] = React.useState('');
-  const [name, setName] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [validateForm, setValidateForm] = React.useState(false);
-  const [disabledButton, setDisabledButton] = React.useState(true)
-  const Link = window.ReactRouterDOM.Link;
-  const ctx = React.useContext(UserContext);
+import React, { useState, useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-  React.useEffect(() => {
+import './styles.css';
+
+import { UserContext } from '../../context/user-context';
+import { Card } from '../../components/card';
+
+export const CreateAccount = () => {
+  const [show, setShow] = useState(true);
+  const [error, setError] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [validateForm, setValidateForm] = useState(false);
+  const [disabledButton, setDisabledButton] = useState(true)
+  const userContext = useContext(UserContext);
+  console.log(userContext);
+
+  useEffect(() => {
     if (name.length > 0 && email.length > 0 && password.length >= 8) {
       setDisabledButton(false);
     }
@@ -28,12 +36,11 @@ function CreateAccount() {
       }, 3000);
       return
     }
-    ctx.setUser({
+    userContext.setUser({
       name: name,
       email: email,
       password: password
     });
-    ctx.users.push({ name, email, password, balance: 100 });
     setShow(false);
   }
 

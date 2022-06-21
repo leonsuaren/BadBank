@@ -1,9 +1,7 @@
-const Route = ReactRouterDOM.Route;
-const Link = ReactRouterDOM.Link;
-const HashRouter = ReactRouterDOM.HashRouter;
-const UserContext = React.createContext(null);
+import React from 'react';
+import './styles.css';
 
-function Card(props) {
+export const Card = (props) => {
   function classes() {
     const bg = props.bgcolor ? ' bg-' + props.bgcolor : ' ';
     const txt = props.txtcolor ? ' text-' + props.txtcolor : ' text-white';
