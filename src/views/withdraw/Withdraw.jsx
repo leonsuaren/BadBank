@@ -8,7 +8,7 @@ export const Withdraw = () => {
   const [withdraw, setWithdraw] = useState(0);
   const [status, setStatus] = useState('');
   const userContext = useContext(UserContext);
-  const userBalance = userContext.users[0].balance;
+  const userBalance = userContext.user.balance;
 
   function handleWithdraw() {
     if (withdraw > userBalance) {

@@ -5,10 +5,11 @@ import { Card } from '../../components/card';
 
 export const Deposit = () => {
   const [show, setShow] = useState(true);
-  const [deposit, setDeposit] = useState(0);
+  const [deposit, setDeposit] = useState();
   const [status, setStatus] = useState('');
   const userContext = useContext(UserContext);
-  const userBalance = userContext.users[0].balance;
+  const userBalance = userContext.user.balance;
+  console.log(userContext.user);
 
   function handleDeposit() {
     if (deposit <= 0) {

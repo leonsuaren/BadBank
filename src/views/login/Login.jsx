@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import { UserContext } from '../../context/user-context';
 import { Card } from '../../components/card';
@@ -62,10 +62,13 @@ export const Login = () => {
             Email<br />
             <input type="input" className="form-control" id="email" placeholder="Enter Email" value={email} onChange={e => setEmail(e.currentTarget.value)}
             /><br />
-          Password<br />
+            Password<br />
             <input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.currentTarget.value)}
             /><br />
-            <button type="submit" className="btn btn-primary" onClick={handleLogin}>Login</button>
+            <div className='btn-group'>
+              <button type="submit" className="btn btn-primary" onClick={handleLogin}>Login</button>
+              <Link className="btn btn-primary" to='/create-account'>Create Account</Link>
+            </div>
           </div>
         ) : (
             <div>
@@ -84,7 +87,7 @@ export const Login = () => {
       />
       {
         invalidCredentials ?
-          <div class="alert alert-warning" role="alert">
+          <div className="alert alert-warning" role="alert">
             Invalid Credentials, Please try again!
           </div>
           : ''

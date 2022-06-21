@@ -15,7 +15,6 @@ export const CreateAccount = () => {
   const [validateForm, setValidateForm] = useState(false);
   const [disabledButton, setDisabledButton] = useState(true)
   const userContext = useContext(UserContext);
-  console.log(userContext);
 
   useEffect(() => {
     if (name.length > 0 && email.length > 0 && password.length >= 8) {
@@ -39,7 +38,8 @@ export const CreateAccount = () => {
     userContext.setUser({
       name: name,
       email: email,
-      password: password
+      password: password,
+      balance: 100
     });
     setShow(false);
   }
