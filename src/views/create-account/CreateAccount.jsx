@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import validator from 'validator';
 import { Link } from 'react-router-dom';
 
 import './styles.css';
@@ -13,11 +14,11 @@ export const CreateAccount = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [validateForm, setValidateForm] = useState(false);
-  const [disabledButton, setDisabledButton] = useState(true)
+  const [disabledButton, setDisabledButton] = useState(true);
   const userContext = useContext(UserContext);
 
   useEffect(() => {
-    if (name.length > 0 && email.length > 0 && password.length >= 8) {
+    if (password.length >= 8) {
       setDisabledButton(false);
     }
   }, [name, email, password]);
@@ -29,6 +30,14 @@ export const CreateAccount = () => {
     } 
     if (password.length < 8) {
       setError('Password must be al least 8 characters long');
+      setValidateForm(true);
+      setTimeout(() => {
+        setValidateForm(false);
+      }, 3000);
+      return
+    }
+    if (!validator.isEmail(email)) {
+      setError('Please enter a valid email.');
       setValidateForm(true);
       setTimeout(() => {
         setValidateForm(false);
@@ -60,6 +69,13 @@ export const CreateAccount = () => {
     setShow(true);
   }
 
+  const handleOnChangePasswordInput = (e) => {
+    if (e.currentTarget.value.length < 8) {
+      setDisabledButton(true);
+    }
+    setPassword(e.currentTarget.value);
+  }
+
   return (
     <div className='container alert-container'>
       <Card
@@ -75,10 +91,10 @@ export const CreateAccount = () => {
               <input type="input" className="form-control" id="email" placeholder="Enter Email" name="email" value={email} onChange={e => setEmail(e.currentTarget.value)}
               /><br />
               Password<br />
-              <input type="password" className="form-control" id="password" placeholder="Enter Password" name="password" value={password} onChange={e => setPassword(e.currentTarget.value)}
+              <input type="password" className="form-control" id="password" placeholder="Enter Password" name="password" value={password} onChange={e => handleOnChangePasswordInput(e)}
               /><br />
               <button type="submit" className="btn btn-light" name="submit" role="button" onClick={handleCreate} disabled={disabledButton}
-              >Create Account.</button>
+              >Create Account</button>
             </div>
           ) : (
             <div>
