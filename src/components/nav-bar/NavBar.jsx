@@ -26,12 +26,6 @@ export const Navbar = () => {
             {
               userLogin &&
               <li className="nav-item">
-                <Link className={params.pathname === '/addaccount' ? "nav-link link-animation active" : "nav-link link-animation" } to='addaccount'>Add Account</Link>
-              </li>
-            }
-            {
-              userLogin &&
-              <li className="nav-item">
                 <Link className={params.pathname === '/deposit' ? "nav-link link-animation active" : "nav-link link-animation" } to="deposit">Deposit</Link>
               </li>
             }
