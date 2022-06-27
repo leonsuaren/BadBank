@@ -44,7 +44,7 @@ export const Navbar = () => {
             {
               userLogin &&
               <li className="nav-item">
-                <Link className={params.pathname === '/alldata' ? "nav-link link-animation active" : "nav-link link-animation" } to="/alldata">All Data</Link>
+                <Link className={params.pathname === '/all-data' ? "nav-link link-animation active" : "nav-link link-animation" } to="/all-data">All Data</Link>
               </li>
             }
           </ul>
