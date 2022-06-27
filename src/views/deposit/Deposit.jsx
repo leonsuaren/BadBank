@@ -1,18 +1,21 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
 import { UserContext } from '../../context/user-context';
 import { Card } from '../../components/card';
 
 export const Deposit = () => {
   const userContext = useContext(UserContext);
+  const userBalance = userContext.userBalance;
   const [show, setShow] = useState(true);
   const [error, setError] = useState('');
-  const userBalance = userContext.user.balance;
   const [deposit, setDeposit] = useState(0);
-  const [inicialBalance, setInicialBalance] = useState(userBalance);
   const [balance, setBalance] = useState(0);
   const [validateForm, setValidateForm] = useState(false);
-  console.log(deposit);
+
+  useEffect(() => {
+    setBalance(userBalance);
+  }, []);
+
   function handleDeposit() {
     if (deposit <= 0) {
       setDeposit(0);
@@ -24,8 +27,10 @@ export const Deposit = () => {
       }, 3000);
       return
     }
-    setBalance(Number(inicialBalance) + Number(deposit));
+    setBalance(Number(deposit) + Number(balance))
+    userContext.setUserBalance(balance);
     setShow(false);
+    return;
   }
 
   function handleAnotherDeposit() {
@@ -41,7 +46,7 @@ export const Deposit = () => {
         body={show ? (
           <div>
             Deposti Amount<br />
-            <input type="number" className="form-control" id="deposit" placeholder="Enter Deposit Amount" value={deposit} onChange={e => setDeposit(e.currentTarget.value)}
+            <input type="number" className="form-control" id="deposit" placeholder="Enter Deposit Amount" value={deposit} onChange={e => setDeposit(e.target.value)}
             /><br />
             <button type="submit" className="btn btn-light" onClick={handleDeposit}
             >Deposit</button>
@@ -53,7 +58,6 @@ export const Deposit = () => {
               >Another Deposit</button>
             </div>
           )
-
         }
       />
       {
