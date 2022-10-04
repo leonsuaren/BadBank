@@ -47,7 +47,7 @@ export const CreateAccount = () => {
       return
     }
 
-    await axios.post(`api/auth/register`, { username: name, email: email, password: password }).then(res => {
+    await axios.post(`/api/auth/register`, { username: name, email: email, password: password }).then(res => {
       setMessage(res.data.message);
       setSuccess(res.data.success);
       setShow(false);

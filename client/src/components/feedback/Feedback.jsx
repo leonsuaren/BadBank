@@ -25,9 +25,9 @@ export const Feedback = () => {
   }, [feedbackSuccess]);
 
   const handleOnSendFeedback = async () => {
-    await axios.post('http://localhost:8080/api/feedback', { userEmail: userEmail, questionOne: feedbackRating, questionTwo: feedbackComment }).then((response) => {
+    await axios.post('/api/feedback', { userEmail: userEmail, questionOne: feedbackRating, questionTwo: feedbackComment }).then((response) => {
     }).catch((error) => {});
-    await axios.put('http://localhost:8080/api/feedback/user-give-feedback', { userEmail: userEmail }).then((response) => {
+    await axios.put('/api/feedback/user-give-feedback', { userEmail: userEmail }).then((response) => {
     });
     setFeedbackSuccess(true);
     setTimeout(() => {

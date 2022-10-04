@@ -33,7 +33,7 @@ export const Withdraw = () => {
   }, []);
 
   const handleOnWithdraw = async () => {
-    await axios.put('http://localhost:8080/api/account/withdraw-checking-account', { costumer: userEmail, balance: balance, withdraw: withdraw }).then((response) => {
+    await axios.put('/api/account/withdraw-checking-account', { costumer: userEmail, balance: balance, withdraw: withdraw }).then((response) => {
     }).catch((error) => {
     });
     handleOnFindCostumerChecking();
