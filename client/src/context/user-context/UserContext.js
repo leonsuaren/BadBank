@@ -14,7 +14,7 @@ export const UserContextProvider = ({ children }) => {
   const [userAccountData, setUserAccountData] = useState([]);
   useEffect(() => {
     async function fetchUserData() {
-     await axios.post('http://localhost:5000/api/account/find-all-user-data', { email: userEmail }).then((response) => {
+     await axios.post(`http://localhost:${process.env.PORT}/api/account/find-all-user-data`, { email: userEmail }).then((response) => {
       setUserAccountData(response.data);
       setUserFeedback(response.data.user.feedback);
     }).catch((error) => {
