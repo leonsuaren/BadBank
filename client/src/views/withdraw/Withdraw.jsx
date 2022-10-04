@@ -19,7 +19,7 @@ export const Withdraw = () => {
 
   const userEmail = localStorage.getItem('user');
   const handleOnFindCostumerChecking = async () => {
-     await axios.post('http://localhost:8080/api/account/find-costumer-accounts', { costumer: userEmail }).then((response) => {
+     await axios.post('/api/account/find-costumer-accounts', { costumer: userEmail }).then((response) => {
       setUserAccountData(response.data.accounts[0].balance);
       setBalance(response.data.accounts[0].balance);
 

@@ -12,7 +12,7 @@ export const Feedback = () => {
   const [feedbackSuccess, setFeedbackSuccess] = useState(false);
   const userEmail = localStorage.getItem('user');
   const fetchUserData = async () => {
-    await axios.post('http://localhost:5000/api/account/find-all-user-data', { email: userEmail }).then((response) => {
+    await axios.post('/api/account/find-all-user-data', { email: userEmail }).then((response) => {
       setUserFeedback(response.data.user.feedback);
     }).catch((error) => { });
   };

@@ -9,7 +9,7 @@ export const Balance = () => {
   const [accountBalance, setAccountBalance] = useState(0);
 
   const fetchUserData = async () => {
-    await axios.post('http://localhost:5000/api/account/find-all-user-data', { email: userEmail }).then((response) => {
+    await axios.post('/api/account/find-all-user-data', { email: userEmail }).then((response) => {
       setUserName(response.data.user.username);
       setUserAccountData(response.data.accounts);
       setAccountBalance(response.data.accounts[0].balance);

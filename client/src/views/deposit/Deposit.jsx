@@ -14,7 +14,7 @@ export const Deposit = () => {
 
   const userEmail = localStorage.getItem('user');
   const handleOnFindCostumerChecking = async () => {
-     await axios.post('http://localhost:5000/api/account/find-costumer-accounts', { costumer: userEmail }).then((response) => {
+     await axios.post('/api/account/find-costumer-accounts', { costumer: userEmail }).then((response) => {
       setUserAccountData(response.data.accounts[0].balance);
       setBalance(response.data.accounts[0].balance);
 
@@ -27,7 +27,7 @@ export const Deposit = () => {
   }, []);
 
   const handleOnDeposit = async () => {
-    await axios.put('http://localhost:5000/api/account/deposit-checking-account', { costumer: userEmail, balance: balance, deposit: deposit }).then((response) => {
+    await axios.put('/api/account/deposit-checking-account', { costumer: userEmail, balance: balance, deposit: deposit }).then((response) => {
     }).catch((error) => {
     });
     handleOnFindCostumerChecking();

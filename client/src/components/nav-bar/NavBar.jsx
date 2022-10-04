@@ -41,7 +41,7 @@ export const Navbar = () => {
   const [transferingAmount, setTransferingAmount] = useState(0);
   const [showTransferAmount, setShowTransferAmoun] = useState(false);
   const fetchUserData = async () => {
-    await axios.post('http://localhost:5000/api/account/find-all-user-data', { email: userEmail }).then((response) => {
+    await axios.post('/api/account/find-all-user-data', { email: userEmail }).then((response) => {
       setUserName(response.data.user.username);
       setCheckingData(response.data.accounts[0]);
       setCostumerData(response.data.accounts);
@@ -88,11 +88,11 @@ export const Navbar = () => {
 
   const handleOnTransferBetweenPersons = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:5000/api/account/find-costumer-accounts', { costumer: receiverEmail }).then((response) => {
+    await axios.post('/api/account/find-costumer-accounts', { costumer: receiverEmail }).then((response) => {
     }).catch((error) => {
 
     });
-    await axios.put('http://localhost:5000/api/account/transfer-between-costumers', {
+    await axios.put('/api/account/transfer-between-costumers', {
       from: userEmail, to: receiverEmail, amount: sendingAmount
     }).then((response) => {
     }).catch((error) => {
@@ -105,7 +105,7 @@ export const Navbar = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      axios.post('http://localhost:5000/api/auth/find-user', { receiverEmail: email, senderEmail: userEmail }).then((response) => {
+      axios.post('/api/auth/find-user', { receiverEmail: email, senderEmail: userEmail }).then((response) => {
         setSuccess(response.data.success);
         setMessage(response.data.message);
         setTimeout(() => {
@@ -158,7 +158,7 @@ export const Navbar = () => {
   }
 
   const handleOnTransferBetweenAccounts = async () => {
-    axios.put('http://localhost:5000/api/account/transfer-between-accounts', { from: transferFromCostumerData.accountNumber, to: transferToCostumerAccount, amount: transferingAmount }).then((response) => {
+    axios.put('/api/account/transfer-between-accounts', { from: transferFromCostumerData.accountNumber, to: transferToCostumerAccount, amount: transferingAmount }).then((response) => {
 
     }).catch((error) => {
 
