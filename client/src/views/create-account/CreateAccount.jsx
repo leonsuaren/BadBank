@@ -47,7 +47,7 @@ export const CreateAccount = () => {
       return
     }
 
-    await axios.post(`http://localhost:${process.env.PORT}/api/auth/register`, { username: name, email: email, password: password }).then(res => {
+    await axios.post(`/api/auth/register`, { username: name, email: email, password: password }).then(res => {
       setMessage(res.data.message);
       setSuccess(res.data.success);
       setShow(false);
@@ -58,7 +58,7 @@ export const CreateAccount = () => {
         setValidateForm(false);
       }, 3000);
     });
-      await axios.post('http://localhost:5000/api/account/create-account', { accountType: "Checking", accountNumber: accountNumber, accountName: "Checking Account", balance: 100, costumer: email }).then(res => {
+      await axios.post('/api/account/create-account', { accountType: "Checking", accountNumber: accountNumber, accountName: "Checking Account", balance: 100, costumer: email }).then(res => {
       }).catch((error) => {
       });
   }
