@@ -25,6 +25,8 @@ export const Balance = () => {
     e.preventDefault();
     setAccountBalance(e.target.value)
   };
+  if (!userAccountData) return null;
+
   return (
     <div className='container container-margin'>
       <div className='grid-container'>
