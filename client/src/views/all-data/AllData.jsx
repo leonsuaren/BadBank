@@ -14,13 +14,13 @@ export const AllData = () => {
   const userEmail = localStorage.getItem('user');
 
   const fetchData = () => {
-    axios.post('http://localhost:8080/api/account/find-costumer-accounts', { costumer: userEmail }).then((response) => {
+    axios.post('http://localhost:5000/api/account/find-costumer-accounts', { costumer: userEmail }).then((response) => {
       setUserAccountData(response.data.accounts);
     }).catch((error) => {
     });
   }
   const fetchUserData = () => {
-    axios.post('http://localhost:8080/api/account/find-all-user-data', { email: userEmail }).then((response) => {
+    axios.post('http://localhost:5000/api/account/find-all-user-data', { email: userEmail }).then((response) => {
       setCostumerName(response.data.user.username);
     }).catch((error) => {
 
@@ -32,7 +32,7 @@ export const AllData = () => {
   }, []);
   const handleOnAddAccount = async (e) => {
     e.preventDefault()
-    await axios.post('http://localhost:8080/api/account/create-account', { accountType: 'Savings', accountNumber: accountNumber, accountName: accountName, balance: balance, costumer: userEmail }).then((response) => {
+    await axios.post('http://localhost:5000/api/account/create-account', { accountType: 'Savings', accountNumber: accountNumber, accountName: accountName, balance: balance, costumer: userEmail }).then((response) => {
       setUserAccountData([...userAccountData, response.data.account]);
       setSuccess(true);
       setTimeout(() => {
@@ -43,7 +43,7 @@ export const AllData = () => {
   };
 
   const handleOnDeleteAccount = async (_id) => {
-    await axios.post('http://localhost:8080/api/account/delete-bank-account', { _id: _id }).then((response) => {
+    await axios.post('http://localhost:5000/api/account/delete-bank-account', { _id: _id }).then((response) => {
       fetchData()
     }).catch((error) => {
     });

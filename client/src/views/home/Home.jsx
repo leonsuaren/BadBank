@@ -12,7 +12,7 @@ export const Home = () => {
   const userLogout = userContext.userLogout;
 
   const fetchUserData = async () => {
-    await axios.post('http://localhost:8080/api/account/find-all-user-data', { email: userEmail }).then((response) => {
+    await axios.post('http://localhost:5000/api/account/find-all-user-data', { email: userEmail }).then((response) => {
       setUserName(response.data.user.username);
     }).catch((error) => {
 
