@@ -1,0 +1,15 @@
+.card-wrapper {
+  position: fixed;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 18rem; 
+  min-width: 18rem; 
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

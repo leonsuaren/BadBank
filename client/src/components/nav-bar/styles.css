@@ -1,0 +1,49 @@
+.link-animation {
+  transition: transform .2s ease-in-out;
+}
+
+.link-animation:hover {
+    color: #095fd6;
+    box-sizing: border-box;
+    transform: scale(1.1);
+}
+
+.active {
+  color: #095fd6 !important;
+  border-bottom: 2px solid #095fd6;
+  box-sizing: border-box;
+}
+
+.active-brand {
+  color: #095fd6 !important;
+  box-sizing: border-box;
+}
+
+.transfer-center-button {
+  margin-left: 30px;
+}
+
+.transfer-button {
+  margin: 5px;
+}
+
+.title {
+  align-self: center;
+}
+
+.modal-options {
+  display: grid;
+}
+
+.modal-options-title {
+  text-align: center;
+}
+
+.display-message-spinner {
+  width: 100%;
+  text-align: center;
+}
+
+.amount-to-transfer {
+  width: 50%;
+}
