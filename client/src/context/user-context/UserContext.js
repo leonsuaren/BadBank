@@ -17,7 +17,6 @@ export const UserContextProvider = ({ children }) => {
      await axios.post(`/api/account/find-all-user-data`, { email: userEmail }).then((response) => {
       setUserAccountData(response.data);
       setUserFeedback(response.data.user.feedback);
-      console.log(response);
     }).catch((error) => {
     }); 
   }
