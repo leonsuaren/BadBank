@@ -26,6 +26,8 @@ export const Balance = () => {
     setAccountBalance(e.target.value)
   };
   if (!userAccountData) return null;
+  if (!accountBalance) return null;
+  if (!userName) return null;
 
   return (
     <div className='container container-margin'>
