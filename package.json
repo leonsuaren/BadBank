@@ -11,6 +11,9 @@
     "start": "node app.js",
     "client": "cd client && npm start"
   },
+  "engines": {
+    "node": "16.13.1"
+  },
   "author": "Leon Suarez",
   "license": "ISC",
   "dependencies": {
