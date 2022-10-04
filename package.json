@@ -9,8 +9,7 @@
     "install-client": "cd client && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
     "start": "node app.js",
-    "client": "cd client && npm start",
-    "postinstall": "ng build"
+    "client": "cd client && npm start"
   },
   "author": "Leon Suarez",
   "license": "ISC",
