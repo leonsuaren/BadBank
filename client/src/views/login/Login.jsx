@@ -26,7 +26,7 @@ export const Login = () => {
   const navigate = useNavigate();
 
   function handleLogin() {
-    axios.post(`api/auth/login`, { email: email, password: password }).then((res) => {
+    axios.post(`/api/auth/login`, { email: email, password: password }).then((res) => {
       setMessage(res.data.message);
       setSuccess(res.data.success);
       localStorage.setItem('token', res.data.token);

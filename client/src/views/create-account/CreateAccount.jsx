@@ -58,7 +58,7 @@ export const CreateAccount = () => {
         setValidateForm(false);
       }, 3000);
     });
-      await axios.post('api/account/create-account', { accountType: "Checking", accountNumber: accountNumber, accountName: "Checking Account", balance: 100, costumer: email }).then(res => {
+      await axios.post('/api/account/create-account', { accountType: "Checking", accountNumber: accountNumber, accountName: "Checking Account", balance: 100, costumer: email }).then(res => {
       }).catch((error) => {
       });
   }
