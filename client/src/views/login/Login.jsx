@@ -30,7 +30,7 @@ export const Login = () => {
       setMessage(res.data.message);
       setSuccess(res.data.success);
       localStorage.setItem('token', res.data.token);
-      localStorage.setItem('user', res.data.user.email);
+      localStorage.setItem('user', res.data.user.email); 
       setLoading(false);
       setShow(false);
       userContext.setUser(res.data.user)
