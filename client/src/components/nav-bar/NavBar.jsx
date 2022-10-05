@@ -157,7 +157,7 @@ export const Navbar = () => {
     setShowTransferAmoun(true);
   }
 
-  const handleOnTransferBetweenAccounts = async () => {
+  const handleOnTransferBetweenAccounts = async (e) => {
     e.preventDefault();
     await axios.post('/api/account/find-costumer-accounts', { costumer: receiverEmail }).then((response) => {
     }).catch((error) => {
