@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const app = express();
+const path = require('path');
 
 const authRouter = require('./routes/auth');
 const accoutRouter = require('./routes/bank-account');
@@ -32,13 +33,26 @@ app.use('/api/feedback', feedbackRouter);
 // This is another regular expression that will match everything that does not
 // starts with /api, in other words we delegate api calls to the back end and
 // not api calls to the front end.
-app.all(new RegExp('^(?!/api)'), (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/index.html'));
-});
+// app.all(new RegExp('^(?!/api)'), (req, res) => {
+//     res.sendFile(path.join(__dirname, 'client/build'));
+// });
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-};
+// app.all('/', (req, res) => {
+//     console.log('error');
+//     res.sendFile(path.join(__dirname, 'client/build/index.html'));
+// });
+
+// if (process.env.NODE_ENV === 'production') {
+  app.use('/', express.static(path.join(__dirname, 'client/build')));
+  app.use('/all-data', express.static(path.join(__dirname, 'client/build')));
+  app.use('/balance', express.static(path.join(__dirname, 'client/build')));
+  app.use('/withdraw', express.static(path.join(__dirname, 'client/build')));
+  app.use('/deposit', express.static(path.join(__dirname, 'client/build')));
+// };
+
+app.use(function(req, res, next) {
+  res.status(404).sendFile(path.join(__dirname, 'client/build'));
+});
 
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
