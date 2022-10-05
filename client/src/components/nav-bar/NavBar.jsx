@@ -88,10 +88,10 @@ export const Navbar = () => {
 
   const handleOnTransferBetweenPersons = async (e) => {
     e.preventDefault();
-    await axios.post('/api/account/find-costumer-accounts', { costumer: receiverEmail }).then((response) => {
-    }).catch((error) => {
+    // await axios.post('/api/account/find-costumer-accounts', { costumer: receiverEmail }).then((response) => {
+    // }).catch((error) => {
 
-    });
+    // });
     await axios.put('/api/account/transfer-between-costumers', {
       from: userEmail, to: receiverEmail, amount: sendingAmount
     }).then((response) => {
