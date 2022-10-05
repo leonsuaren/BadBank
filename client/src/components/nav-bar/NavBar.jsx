@@ -100,12 +100,6 @@ export const Navbar = () => {
     });
   }
 
-  if (!costumerData) return null;
-  if (!userName) return null;
-  if (!checkingData) return null;
-  if (!costumerData) return null;
-
-
   const handleOnFindReceiver = async (email) => {
     setError(false);
     setLoading(true);
