@@ -29,7 +29,12 @@ app.use('/api/auth', authRouter);
 app.use('/api/account', accoutRouter);
 app.use('/api/feedback', feedbackRouter);
 
-// app.get("*", (req, res) => { req.sendFile(path.resolve(__dirname, "client", "build", "index.html")); });
+// This is another regular expression that will match everything that does not
+// starts with /api, in other words we delegate api calls to the back end and
+// not api calls to the front end.
+app.all(new RegExp('^(?!/api)'), (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/index.html'));
+});
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
