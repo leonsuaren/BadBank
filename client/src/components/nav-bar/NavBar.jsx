@@ -41,7 +41,7 @@ export const Navbar = () => {
   const [transferingAmount, setTransferingAmount] = useState(0);
   const [showTransferAmount, setShowTransferAmoun] = useState(false);
   const fetchUserData = async () => {
-    await axios.post('/api/account/find-all-user-data', { email: userEmail }).then((response) => {
+     axios.post('/api/account/find-all-user-data', { email: userEmail }).then((response) => {
       setUserName(response.data.user.username);
       setCheckingData(response.data.accounts[0]);
       setCostumerData(response.data.accounts);
@@ -99,6 +99,12 @@ export const Navbar = () => {
 
     });
   }
+
+  if (!costumerData) return null;
+  if (!userName) return null;
+  if (!checkingData) return null;
+  if (!costumerData) return null;
+
 
   const handleOnFindReceiver = async (email) => {
     setError(false);
