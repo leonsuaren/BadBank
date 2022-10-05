@@ -48,6 +48,8 @@ app.use('/api/feedback', feedbackRouter);
   app.use('/balance', express.static(path.join(__dirname, 'client/build')));
   app.use('/withdraw', express.static(path.join(__dirname, 'client/build')));
   app.use('/deposit', express.static(path.join(__dirname, 'client/build')));
+  app.use('/login', express.static(path.join(__dirname, 'client/build')));
+  app.use('/register', express.static(path.join(__dirname, 'client/build')));
 // };
 
 app.use(function(req, res, next) {
