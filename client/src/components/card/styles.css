@@ -5,6 +5,7 @@
   transform: translate(-50%, -50%);
   max-width: 18rem; 
   min-width: 18rem; 
+  z-index: -1;
 }
 
 .card-content {
