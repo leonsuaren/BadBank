@@ -1,11 +1,11 @@
 <div align="center" width="100%">
-  <img src='/BadBank.png' />
+  <img src='/public/BadBank.png' />
 </div>
 
 <div style="text-align: center;" markdown="1" align='center'>
 
   ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/leonsuaren/BadBank)
-
+  
  </div>
 
 > A simple app that allows you to perform the basic operations of a bank such as making deposits, withdrawing, and checking out your balance. This App also allows you to transfer between your accounts and to other users.
