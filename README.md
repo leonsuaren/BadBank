@@ -1,6 +1,7 @@
 <div align="center" width="100%">
   <img src='/BadBank.png' />
 </div>
+
 # BADBANK APP
 
 > A simple app that allows you to perform the basic operations of a bank such as making deposits, withdrawing, and checking out your balance. This App also allows you to transfer between your accounts and to other users.
