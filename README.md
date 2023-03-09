@@ -1,6 +1,9 @@
+<div align="center" width="100%">
+  <img src='/public/BadBank.png' />
+</div>
 # BADBANK APP
 
-> A simple app that allows you to perform the basic operations of a bank such as, making deposits, withdrawing, and checking out your balance. This App also allows you to transfer between your accounts and to other users.
+> A simple app that allows you to perform the basic operations of a bank such as making deposits, withdrawing, and checking out your balance. This App also allows you to transfer between your accounts and to other users.
 
 > To get access to the application you should first, create a user on the register view by clicking on the `register` button on the top right corner in the navigation bar and then log in, you will see the `login` button next to the `register` button. once you are in the register view, to create a user, provide a username, an email, and a password, and the system will evaluate whether the email is valid or not, the password should be 8 characters long, and could be letters or numbers. Once the user is created you can log in to your account. Go to the login view and simply enter the email and password that you just created.
 
@@ -10,7 +13,7 @@
 
 >If you want to create a savings account, navigate to all-data view and click on the `Add Account` button, a modal will open, enter an initial balance and a description of what is this saving account for, for example, `buy a car`, click on the `Add Account` button on the modal and that's it, you'll see your new savings account displayed within the all-data view. You can also delete your savings accounts, to do it, the account should be on 0 balance (Transfer your savings account's balance to have it on 0). You can only delete a savings account, the checking account can't be deleted, remember, to be a Badbank customer you will need at least one checking account with us. 
 
->You can transfer between your accounts or to other customers' accounts as many times as you want. To do it, go to the `Transfer Center` button located in the Navigation bar, and a modal will be displayed. To transfer between your accounts you need at least two accounts, otherwise, the `Transfer between accounts` button will be disabled (create a savings account to perform this operation). To transfer between customers, click on the `Transfer to other person` button in the `Transfer center`, all you need to do is provide the email of the customer you want to send money, this customer must have an account with Badbank to receive the money, the system will evaluate whether the email is a valid user or not if the email is a valid customer you can provide the amount you want to transfer, if the email is not a valid customer, the system won't let you continue.
+>You can transfer between your accounts or to other customers' accounts as many times as you want. To do it, go to the `Transfer Center` button located in the Navigation bar, and a modal will be displayed. To transfer between your accounts you need at least two accounts, otherwise, the `Transfer between accounts` button will be disabled (create a savings account to perform this operation). To transfer between customers, click on the `Transfer to another person` button in the `Transfer center`, all you need to do is provide the email of the customer you want to send money, this customer must have an account with Badbank to receive the money, the system will evaluate whether the email is a valid user or not if the email is a valid customer you can provide the amount you want to transfer, if the email is not a valid customer, the system won't let you continue.
 
 >You can also, give feedback on what you think about the app, a feedback button will appear on the left side of the app, and once you provide feedback you won't see it again.
 

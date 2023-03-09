@@ -206,7 +206,7 @@ export const Navbar = () => {
             {
               userLogin &&
               <li className="nav-item">
-                <button type="button" className="btn btn-primary transfer-center-button" data-bs-toggle="modal" data-bs-target="#transferCenterModal" onClick={fetchUserData}>Transfer Center</button>
+                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#transferCenterModal" onClick={fetchUserData}>Transfer Center</button>
                 <div className="modal fade" id="transferCenterModal" tabIndex="-1" aria-labelledby="transferCenterModalLabel" aria-hidden="true">
                   <div className="modal-dialog">
                     <div className="modal-content">
@@ -349,8 +349,8 @@ export const Navbar = () => {
               {
                 userLogin ?
                   <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li className="nav-item">
-                      <p className="nav-link">{userName}</p>
+                    <li className="nav-item user-welcome">
+                      <p className="nav-link">Welcome <span className='username'>{userName}</span> </p>
                     </li>
                     <li className="nav-item">
                       <Link className="nav-link link-animation" to="" onClick={handleOnLogout}>Logout</Link>

@@ -1,5 +1,5 @@
 .feedback-wrapper {
-  position: relative;
+  position: absolute;
   left: 0;
   top: 500px;
   height: 50px;

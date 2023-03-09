@@ -19,10 +19,6 @@
   box-sizing: border-box;
 }
 
-.transfer-center-button {
-  margin-left: 30px;
-}
-
 .transfer-button {
   margin: 5px;
 }
@@ -46,4 +42,19 @@
 
 .amount-to-transfer {
   width: 50%;
+}
+
+.username {
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.user-welcome {
+  display: inline-block;
+}
+
+@media screen and (min-width: 375px) and (max-width: 820px) {
+  .user-welcome {
+    display: none;
+  }
 }
